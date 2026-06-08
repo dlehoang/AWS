@@ -1,59 +1,31 @@
 ---
-title: "Worklog Tuần 2"
+title: "Nhật ký làm việc Tuần 2"
 date: 2024-01-01
-weight: 1
+weight: 2
 chapter: false
 pre: " <b> 1.2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 2:
 
-### Mục tiêu tuần 2:
+* Hiểu và thực hành triển khai các máy chủ ảo cũng như thiết lập môi trường lập trình trên đám mây.
+* Thành thạo các khái niệm lưu trữ dữ liệu nâng cao và cấu hình hosting website tĩnh trên AWS.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần:
+| Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Tìm hiểu dịch vụ AWS IAM (Identity and Access Management) để quản lý người dùng, nhóm và phân quyền. <br> - Thực hành thiết lập bảo mật đa lớp MFA cho tài khoản Root và tài khoản IAM. | 27/04/2026  | 27/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Nghiên cứu kiến thức cơ bản về Amazon EC2: Các loại Instance, cấu trúc AMI, và ổ đĩa lưu trữ EBS. <br> - Thực hành khởi tạo, cấu hình và kết nối vào máy chủ EC2 thông qua giao thức SSH. | 28/04/2026 | 28/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Cấu hình IAM Role cụ thể cho máy chủ EC2 để phân quyền truy cập an toàn tới các dịch vụ AWS khác mà không dùng Access Key. <br> - Làm quen và thiết lập môi trường lập trình đám mây với AWS Cloud9. | 29/04/2026 | 29/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Nghiên cứu giải pháp lưu trữ đối tượng với Amazon S3 (Tìm hiểu về Bucket, Object và cơ chế phân quyền Permission / Policies). | 30/04/2026 | 30/04/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Thực hành tải dữ liệu lên Amazon S3, cấu hình Bucket Policy và triển khai hosting một website tĩnh (HTML/CSS) chạy trực tiếp trên S3. | 01/05/2026 | 01/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Kết quả đạt được trong Tuần 2:
 
+Nắm vững nguyên tắc phân quyền tối thiểu (Least Privilege) thông qua việc tạo và quản lý thành thạo IAM User, Group và các Policy tùy chỉnh.
 
-### Kết quả đạt được tuần 2:
+Triển khai và quản lý thành công hệ thống máy chủ ảo (EC2), biết cách gắn thêm dung lượng lưu trữ khối (EBS) khi hệ thống có nhu cầu mở rộng.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Làm quen và sử dụng tốt môi trường mã nguồn mở trực tuyến AWS Cloud9 để phục vụ cho các dự án lập trình ứng dụng đám mây.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Khởi tạo thành công các S3 bucket, cấu hình chính sách bảo mật và đưa website tĩnh lên môi trường Internet ổn định bằng tính năng S3 Static Website Hosting.

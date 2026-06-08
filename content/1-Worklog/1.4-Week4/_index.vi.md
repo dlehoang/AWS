@@ -1,59 +1,31 @@
 ---
-title: "Worklog Tuần 4"
+title: "Nhật ký làm việc Tuần 4"
 date: 2024-01-01
-weight: 1
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 4:
 
-### Mục tiêu tuần 4:
+* Hiểu cách xây dựng kiến trúc hệ thống có tính sẵn sàng cao (High Availability), khả năng chịu lỗi và tự động co giãn trên AWS.
+* Tìm hiểu giải pháp giám sát hiệu năng hạ tầng và theo dõi mức độ tiêu thụ tài nguyên của ứng dụng.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần:
+| Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Nghiên cứu khái niệm High Availability & Scalability (Mở rộng theo chiều dọc và chiều ngang) <br> - Tìm hiểu hệ thống phân giải tên miền Amazon Route 53 và các chính sách định tuyến tên miền | 11/05/2026  | 11/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Nghiên cứu dịch vụ cân bằng tải Elastic Load Balancing (ELB): <br>&emsp; + Phân biệt ALB, NLB và CLB <br>&emsp; + Cơ chế định tuyến lưu lượng dựa trên HTTP/HTTPS | 12/05/2026 | 12/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Tìm hiểu dịch vụ tự động co giãn hệ thống AWS Auto Scaling: <br>&emsp; + Cấu hình Launch Templates <br>&emsp; + Thiết lập các chính sách co giãn (Scaling Policies) | 13/05/2026 | 13/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Nghiên cứu dịch vụ giám sát hệ thống Amazon CloudWatch: <br>&emsp; + Cách theo dõi chỉ số (Metrics) <br>&emsp; + Cấu hình bộ ghi nhật ký (Logs) và bộ lọc | 14/05/2026 | 14/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Thực hành tổng hợp: <br>&emsp; + Tạo một Auto Scaling Group kết hợp với Application Load Balancer (ALB) <br>&emsp; + Giả lập quá tải CPU để kiểm tra tính năng tự co giãn <br>&emsp; + Thiết lập CloudWatch Alarms gửi cảnh báo | 15/05/2026 | 15/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Kết quả đạt được trong Tuần 4:
 
+Nắm vững các nguyên lý thiết kế hệ thống phân tán chống chịu thảm họa và cơ chế định tuyến tên miền toàn cầu với Amazon Route 53.
 
-### Kết quả đạt được tuần 4:
+Hiểu rõ cách dịch vụ Elastic Load Balancing phân phối lưu lượng truy cập một cách thông minh đến các cụm máy chủ EC2 phía sau để tối ưu hiệu năng.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Triển khai thành công hệ thống tự động co giãn AWS Auto Scaling giúp tự động thêm/bớt máy chủ linh hoạt theo nhu cầu thực tế của người dùng nhằm tối ưu chi phí hạ tầng.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Thành thạo việc giám sát tài nguyên bằng Amazon CloudWatch, biết cách thiết lập Dashboard quản lý tập trung và cấu hình gửi cảnh báo tự động qua email (SNS) khi hệ thống gặp sự cố.

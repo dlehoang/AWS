@@ -1,59 +1,31 @@
 ---
-title: "Worklog Tuần 3"
+title: "Nhật ký làm việc Tuần 3"
 date: 2024-01-01
-weight: 1
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 3:
 
-### Mục tiêu tuần 3:
+* Nghiên cứu và thực hành khởi tạo các dịch vụ cơ sở dữ liệu quan hệ và phi quan hệ trên nền tảng AWS.
+* Khám phá giải pháp triển khai ứng dụng nhanh chóng và quản lý container gọn nhẹ.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần:
+| Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Tìm hiểu Amazon RDS: <br>&emsp; + Các loại Engine hỗ trợ <br>&emsp; + Cơ chế sao lưu (Backup) <br>&emsp; + Triển khai Multi-AZ để tăng tính sẵn sàng cao | 04/05/2026  | 04/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Nghiên cứu Amazon DynamoDB: <br>&emsp; + Khái niệm NoSQL <br>&emsp; + Cấu trúc bảng, Khóa chính (Primary Key) <br>&emsp; + Các mục dữ liệu (Items) | 05/05/2026 | 05/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Tìm hiểu Amazon ElastiCache: <br>&emsp; + Cơ chế In-memory data store <br>&emsp; + Redis vs Memcached <br>&emsp; + Tối ưu hiệu năng truy vấn cho ứng dụng | 06/05/2026 | 06/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Tìm hiểu Amazon Lightsail: <br>&emsp; + Giải pháp VPS đơn giản <br>&emsp; + Cách khởi tạo instance với các Blueprint có sẵn (WordPress, LAMP, Node.js) | 07/05/2026 | 07/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Thực hành với Lightsail Containers: <br>&emsp; + Triển khai ứng dụng container hóa đơn giản <br>&emsp; + Quản lý Deployment và Endpoint trên Lightsail | 08/05/2026 | 08/05/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Kết quả đạt được trong Tuần 3:
 
+Khởi tạo và kết nối thành công cơ sở dữ liệu quan hệ Amazon RDS, hiểu rõ cách thiết lập Security Group để bảo mật tầng dữ liệu.
 
-### Kết quả đạt được tuần 3:
+Làm chủ các thao tác cơ bản trên NoSQL DynamoDB, biết cách tạo bảng và thực hiện truy vấn dữ liệu hiệu quả với chi phí tối ưu.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Thấu hiểu vai trò của tầng Cache (ElastiCache) trong việc giảm tải cho cơ sở dữ liệu gốc và tăng tốc độ phản hồi cho người dùng cuối.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Thành thạo việc sử dụng Amazon Lightsail để triển khai nhanh các ứng dụng web phổ thông và quản lý ứng dụng Docker thông qua giao diện đơn giản của Lightsail Containers.
