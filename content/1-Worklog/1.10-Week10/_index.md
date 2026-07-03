@@ -1,57 +1,31 @@
 ---
 title: "Week 10 Worklog"
 date: 2024-01-01
-weight: 2
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 10 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Research and apply Infrastructure as Code (IaC) methodologies to automate cloud resource provisioning.
+* Explore cloud security monitoring, vulnerability scanning, and compliance management on AWS.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
+| Day | Task | Start Date | Completion Date | Reference Material |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| 2   | - Study Infrastructure as Code with AWS CloudFormation: <br>&emsp; + Learn about Templates, Stacks, and Change Sets <br>&emsp; + Practice writing resource configurations in YAML/JSON formats | 22/06/2026  | 22/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Research the AWS Cloud Development Kit (CDK): <br>&emsp; + Understand CDK Constructs and Stacks <br>&emsp; + Explore using programming languages (TypeScript/Python) to define infrastructure | 23/06/2026 | 23/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Learn automated security monitoring and threat detection services: <br>&emsp; + Study malicious behavior detection with Amazon GuardDuty <br>&emsp; + Explore automated vulnerability scanning with Amazon Inspector | 24/06/2026 | 24/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Research configuration management and compliance auditing solutions: <br>&emsp; + Explore resource tracking and history logging with AWS Config <br>&emsp; + Setup custom AWS Config Rules to automate compliance checks | 25/06/2026 | 25/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Hands-on Lab: <br>&emsp; + Write an AWS CDK script to automate a full VPC network and EC2 instance rollout <br>&emsp; + Enable Amazon GuardDuty to monitor unauthorized access behaviors on the newly created stack | 26/06/2026 | 26/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 10 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Gained a strong foundation in Infrastructure as Code (IaC), allowing rapid deployment and reuse of system blueprints using AWS CloudFormation.
 
-* Successfully created and configured an AWS Free Tier account.
+Proficient in using AWS CDK to programmatically provision cloud infrastructure with familiar coding languages, accelerating project deployment speed.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+Understood the continuous assessment features of Amazon GuardDuty and Amazon Inspector to actively identify system vulnerabilities and early threat indicators.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+Mastered AWS Config for maintaining resource configuration history, ensuring the infrastructure consistently adheres to organizational security standards.

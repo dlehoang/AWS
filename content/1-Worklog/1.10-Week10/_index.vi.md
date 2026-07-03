@@ -1,59 +1,31 @@
 ---
-title: "Worklog Tuần 10"
+title: "Nhật ký làm việc Tuần 10"
 date: 2024-01-01
-weight: 2
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 10:
 
-### Mục tiêu tuần 10:
+* Nghiên cứu và ứng dụng phương pháp Quản lý hạ tầng bằng mã nguồn (Infrastructure as Code - IaC) để tự động hóa việc khởi tạo tài nguyên.
+* Tìm hiểu giải pháp giám sát an ninh hệ thống, phát hiện lỗ hổng và quản lý tuân thủ tiêu chuẩn bảo mật trên AWS.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần:
+| Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Tìm hiểu dịch vụ Quản lý hạ tầng bằng mã nguồn AWS CloudFormation: <br>&emsp; + Khái niệm về Templates, Stacks và Change Sets <br>&emsp; + Cách viết cấu trúc file cấu hình bằng định dạng YAML/JSON | 22/06/2026  | 22/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Nghiên cứu bộ công cụ phát triển đám mây AWS Cloud Development Kit (CDK): <br>&emsp; + Khái niệm về Constructs và Stacks trong CDK <br>&emsp; + Cách sử dụng ngôn ngữ lập trình (TypeScript/Python) để định nghĩa hạ tầng | 23/06/2026 | 23/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Tìm hiểu các dịch vụ giám sát an ninh và phát hiện mối đe dọa tự động: <br>&emsp; + Dịch vụ phân tích nhật ký hành vi và phát hiện mã độc Amazon GuardDuty <br>&emsp; + Dịch vụ tự động quét lỗ hổng bảo mật Amazon Inspector | 24/06/2026 | 24/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Nghiên cứu giải pháp quản lý cấu hình và đánh giá mức độ tuân thủ: <br>&emsp; + Dịch vụ ghi vết lịch sử thay đổi tài nguyên AWS Config <br>&emsp; + Thiết lập các quy tắc (AWS Config Rules) để tự động hóa kiểm tra an toàn hệ thống | 25/06/2026 | 25/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Thực hành tổng hợp: <br>&emsp; + Viết một kịch bản AWS CDK để tự động khởi tạo một mô hình mạng VPC và cụm máy chủ EC2 hoàn chỉnh <br>&emsp; + Cấu hình kích hoạt Amazon GuardDuty để giám sát các hành vi truy cập bất thường vào hệ thống vừa tạo | 26/06/2026 | 26/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Kết quả đạt được trong Tuần 10:
 
+Hiểu rõ tư duy tự động hóa hạ tầng (IaC), có khả năng xây dựng và tái sử dụng các bản thiết kế hệ thống thông qua AWS CloudFormation.
 
-### Kết quả đạt được tuần 10:
+Thành thạo việc sử dụng AWS CDK để lập trình và khởi tạo tài nguyên Cloud bằng ngôn ngữ lập trình quen thuộc, giúp tối ưu hóa tốc độ triển khai dự án.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Nắm vững cơ chế hoạt động của Amazon GuardDuty và Amazon Inspector trong việc chủ động quét lỗ hổng, phát hiện sớm các nguy cơ tấn công mạng.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Làm chủ dịch vụ AWS Config giúp kiểm soát toàn bộ lịch sử thay đổi cấu hình tài nguyên, đảm bảo hệ thống luôn tuân thủ các quy chuẩn bảo mật nghiêm ngặt.

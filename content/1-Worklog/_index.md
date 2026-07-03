@@ -16,15 +16,15 @@ Typically, and as a standard, a worklog is carried out over about 3 months (thro
 
 **Week 1:** [Getting familiar with AWS and basic AWS services](1.1-week1/)
 
-**Week 2:** [Doing task A...](1.2-week2/)
+**Week 2:** [Identity & Access Management (IAM) and Cloud Storage with Amazon S3](1.2-week2/)
 
-**Week 3:** [Doing task B...](1.3-week3/)
+**Week 3:** [Database Deployments and Fast Prototyping with Amazon Lightsail](1.3-week3/)
 
-**Week 4:** [Doing task C...](1.4-week4/)
+**Week 4:** [High Availability Architectures, Auto Scaling, and System Monitoring](1.4-week4/)
 
-**Week 5:** [Doing task D...](1.5-week5/)
+**Week 5:** [Cloud Migration Strategies and Infrastructure Transition Tools](1.5-week5/)
 
-**Week 6:** [Doing task E...](1.6-week6/)
+**Week 6:** [System Optimization via the AWS Well-Architected Framework](1.6-week6/)
 
 **Week 7:** [Doing task G...](1.7-week7/)
 

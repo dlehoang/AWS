@@ -1,59 +1,31 @@
 ---
-title: "Worklog Tuần 8"
+title: "Nhật ký làm việc Tuần 8"
 date: 2024-01-01
-weight: 1
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 8:
 
-### Mục tiêu tuần 8:
+* Nghiên cứu và thực hành xây dựng ứng dụng dựa trên kiến trúc không máy chủ (Serverless Architecture) hoàn chỉnh.
+* Tìm hiểu giải pháp quản lý danh tính người dùng và tăng tốc phân phối nội dung toàn cầu trên AWS.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần:
+| Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Nghiên cứu chuyên sâu về AWS Lambda: <br>&emsp; + Cơ chế hoạt động và Trigger <br>&emsp; + Tìm hiểu về Lambda Layers <br>&emsp; + Cách tối ưu hóa thời gian Cold Start | 08/06/2026  | 08/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Tìm hiểu dịch vụ Amazon API Gateway: <br>&emsp; + Cấu hình REST API và HTTP API <br>&emsp; + Thiết lập cơ chế kiểm soát truy cập (Authorizers) <br>&emsp; + Cấu hình giới hạn lưu lượng (Throttling) | 09/06/2026 | 09/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Nghiên cứu dịch vụ quản lý định danh Amazon Cognito: <br>&emsp; + Tìm hiểu và cấu hình User Pools <br>&emsp; + Tìm hiểu và cấu hình Identity Pools để xác thực người dùng | 10/06/2026 | 10/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Tìm hiểu mạng lưới phân phối nội dung Amazon CloudFront (CDN): <br>&emsp; + Cơ chế lưu bộ nhớ đệm tại các Edge Location <br>&emsp; + Tích hợp chứng chỉ bảo mật với AWS Certificate Manager (ACM) | 11/06/2026 | 11/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Thực hành tổng hợp: <br>&emsp; + Triển khai một hệ thống Serverless hoàn chỉnh <br>&emsp; + Sử dụng API Gateway tiếp nhận request và kích hoạt Lambda xử lý dữ liệu <br>&emsp; + Lưu trữ vào DynamoDB và bảo mật ứng dụng bằng Cognito | 12/06/2026 | 12/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Kết quả đạt được trong Tuần 8:
 
+Hiểu rõ tư duy thiết kế hệ thống Serverless, biết cách viết và đóng gói mã nguồn tối ưu cho các hàm AWS Lambda xử lý logic nghiệp vụ.
 
-### Kết quả đạt được tuần 8:
+Cấu hình thành công hệ thống API Gateway làm cổng kết nối bảo mật, điều hướng dữ liệu mượt mà từ ứng dụng client xuống các dịch vụ backend.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Làm chủ dịch vụ Amazon Cognito, giải quyết được bài toán đăng ký, đăng nhập và bảo mật phân quyền đa lớp cho người dùng cuối một cách an toàn.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Hiểu rõ cơ chế hoạt động của Amazon CloudFront giúp tối ưu hóa tốc độ tải trang, giảm độ trễ (latency) cho ứng dụng web khi phân phối ra Internet toàn cầu.

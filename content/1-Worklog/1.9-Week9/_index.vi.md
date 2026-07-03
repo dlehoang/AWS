@@ -1,59 +1,31 @@
 ---
-title: "Worklog Tuần 9"
+title: "Nhật ký làm việc Tuần 9"
 date: 2024-01-01
-weight: 1
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
+### Mục tiêu Tuần 9:
 
-### Mục tiêu tuần 9:
+* Nghiên cứu và thực hành triển khai các ứng dụng container hóa bằng các dịch vụ quản lý container chuyên nghiệp trên AWS.
+* Tìm hiểu giải pháp tự động hóa quy trình tích hợp và triển khai liên tục (CI/CD) trên nền tảng đám mây.
 
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+### Công việc thực hiện trong tuần:
+| Ngày | Nhiệm vụ | Ngày bắt đầu | Ngày hoàn thành | Tài liệu tham khảo |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
+| 2   | - Tìm hiểu dịch vụ lưu trữ mã nguồn và quản lý container cơ bản: <br>&emsp; + Trình quản lý kho chứa tài nguyên Amazon Elastic Container Registry (ECR) <br>&emsp; + Cách đóng gói và đẩy Docker Image lên ECR | 15/06/2026  | 15/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Nghiên cứu dịch vụ điều phối container Amazon Elastic Container Service (ECS): <br>&emsp; + Khái niệm về Task Definitions, Tasks và Services <br>&emsp; + Phân biệt hai cơ chế chạy EC2 Launch Type và AWS Fargate | 16/06/2026 | 16/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Tìm hiểu bộ công cụ lập trình và quản lý mã nguồn AWS Code Suite: <br>&emsp; + Dịch vụ lưu trữ mã nguồn git Amazon CodeCommit <br>&emsp; + Dịch vụ biên dịch và kiểm thử mã nguồn tự động AWS CodeBuild | 17/06/2026 | 17/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Nghiên cứu giải pháp triển khai và tự động hóa quy trình: <br>&emsp; + Dịch vụ hỗ trợ triển khai mã nguồn tự động AWS CodeDeploy <br>&emsp; + Tạo vòng đời quản lý quy trình kiểm thử với AWS CodePipeline | 18/06/2026 | 18/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Thực hành tổng hợp: <br>&emsp; + Xây dựng một quy trình CI/CD hoàn chỉnh (Pipeline) tự động hóa hoàn toàn <br>&emsp; + Tự động biên dịch mã nguồn từ CodeCommit, đóng gói thành Docker Image đẩy lên ECR <br>&emsp; + Tự động cập nhật phiên bản ứng dụng mới lên cụm máy chủ không máy chủ AWS Fargate (ECS) | 19/06/2026 | 19/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
-### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
+### Kết quả đạt được trong Tuần 9:
 
+Thành thạo việc đóng gói ứng dụng bằng Docker, biết cách quản lý và lưu trữ các phiên bản ảnh ứng dụng (Docker Images) an toàn trên Amazon ECR.
 
-### Kết quả đạt được tuần 9:
+Hiểu rõ cơ chế điều phối và vận hành cụm container với Amazon ECS, tối ưu hóa được chi phí hạ tầng thông qua mô hình tính toán không máy chủ AWS Fargate.
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Làm chủ bộ công cụ AWS Code Suite, tự xây dựng được tư duy chuẩn hóa quy trình phát triển phần mềm hiện đại trên môi trường Cloud.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
-
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+Triển khai thành công hệ thống CI/CD tự động hóa từ đầu đến cuối, giúp tăng tốc độ phân phối ứng dụng, giảm thiểu tối đa các sai sót do thao tác thủ công.
