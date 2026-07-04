@@ -1,57 +1,31 @@
 ---
 title: "Week 11 Worklog"
 date: 2024-01-01
-weight: 2
+weight: 11
 chapter: false
 pre: " <b> 1.11. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 11 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Analyze requirements and design the global system architecture for the final internship project leveraging AWS services.
+* Deploy secure virtual network topologies and provision foundational storage and database layers for the core application.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
+| Day | Task | Start Date | Completion Date | Reference Material |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| 2   | - Receive project requirements and analyze the final capstone scope <br> - Evaluate and select fitting architectural patterns (Microservices/Serverless) <br> - Draft the comprehensive AWS infrastructure diagram | 29/06/2026  | 29/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Utilize AWS CDK/CloudFormation to provision network components: <br>&emsp; + Establish a Multi-AZ Amazon VPC topology <br>&emsp; + Configure Public and Private Subnet isolation <br>&emsp; + Set up NAT Gateways and Security Groups | 30/06/2026 | 30/06/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Provision decoupled storage and database tiers: <br>&emsp; + Launch highly available Multi-AZ Amazon RDS instances <br>&emsp; + Create Amazon DynamoDB tables for unstructured entries <br>&emsp; + Configure S3 Buckets for static media holding | 01/07/2026 | 01/07/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Implement compute and business logic components: <br>&emsp; + Set up Amazon ECS (Fargate) tasks for containerized core workloads <br>&emsp; + Write and configure asynchronous AWS Lambda handlers | 02/07/2026 | 02/07/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Hands-on Lab Integration and Verification: <br>&emsp; + Validate multi-tier connectivity from computing tasks (ECS/Lambda) to databases (RDS/DynamoDB) <br>&emsp; + Audit and verify granular IAM Roles for all active project resources | 03/07/2026 | 03/07/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 11 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Completed the comprehensive system architecture design for the final project, aligning with AWS Well-Architected best practices.
 
-* Successfully created and configured an AWS Free Tier account.
+Successfully deployed a secure, isolated network infrastructure with clear segregation between public-facing and private backend subnets.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+Initialized and interconnected core stateful layers including relational storage (RDS), NoSQL (DynamoDB), and object storage (S3).
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+Successfully orchestrated container tasks via ECS Fargate and standalone Lambda functions within a verified, restricted VPC mesh environment.

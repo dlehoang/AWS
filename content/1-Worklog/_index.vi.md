@@ -10,30 +10,30 @@ pre: " <b> 1. </b> "
 ⚠️ **Lưu ý:** Thông tin dưới đây chỉ mang tính chất tham khảo. Vui lòng **không sao chép nguyên văn** vào báo cáo của bạn, bao gồm cả cảnh báo này.
 {{% /notice %}}
 
-**Tại trang này**, bạn cần giới thiệu tổng quan về nhật ký làm việc của mình. Bạn đã hoàn thành nó **như thế nào**? Bạn mất bao nhiêu tuần để hoàn thành chương trình thực tập? Bạn đã làm **những gì** trong các tuần đó?
+**Tại trang này**, bạn sẽ thấy tổng quan về nhật ký làm việc kỹ thuật được ghi nhận trong suốt quá trình thực tập. Nhật ký theo dõi tiến độ hàng tuần, các bài thực hành thực tế và các thành tựu kiến trúc trên nền tảng Amazon Web Services (AWS).
 
-Thông thường, theo tiêu chuẩn, một nhật ký làm việc sẽ được thực hiện trong khoảng 3 tháng (xuyên suốt toàn bộ kỳ thực tập) với các nội dung chi tiết theo từng tuần như sau:
+Toàn bộ chương trình kéo dài trong 12 tuần, đi sâu vào các lĩnh vực cốt lõi khác nhau của điện toán đám mây mỗi tuần để hướng tới việc xây dựng một hệ thống hoàn chỉnh cho dự án cuối khóa:
 
-**Tuần 1:** [Làm quen với AWS và các dịch vụ AWS cơ bản](1.1-week1/)
+**Tuần 1:** [Làm quen với AWS và các dịch vụ hạ tầng cốt lõi](1.1-week1/)
 
-**Tuần 2:** [Quản lý định danh IAM và Lưu trữ đám mây với Amazon S3](1.2-week2/)
+**Tuần 2:** [Quản lý định danh & truy cập (IAM) và môi trường mạng ảo](1.2-week2/)
 
-**Tuần 3:** [Triển khai Cơ sở dữ liệu và Giải pháp nhanh với Amazon Lightsail](1.3-week3/)
+**Tuần 3:** [Quản lý thực thể máy chủ, ổ đĩa lưu trữ và kết nối bảo mật](1.3-week3/)
 
-**Tuần 4:** [Kiến trúc Tính sẵn sàng cao, Tự động co giãn và Giám sát hệ thống](1.4-week4/)
+**Tuần 4:** [Cơ sở dữ liệu quan hệ có quản lý và kiến trúc có tính sẵn sàng cao](1.4-week4/)
 
-**Tuần 5:** [Chiến lược và Công cụ dịch chuyển hạ tầng đám mây (Cloud Migration)](1.5-week5/)
+**Tuần 5:** [Quản lý ngân sách chi phí, giám sát hệ thống và quản trị DNS](1.5-week5/)
 
-**Tuần 6:** [Tối ưu hóa hệ thống theo Bộ khung kiến trúc chuẩn AWS Well-Architected](1.6-week6/)
+**Tuần 6:** [Chiến lược dịch chuyển lên đám mây và tối ưu hóa hiệu năng hệ thống](1.6-week6/)
 
-**Tuần 7:** [Thực hiện công việc G...](1.7-week7/)
+**Tuần 7:** [Kiến trúc hướng sự kiện và quản lý mã hóa dữ liệu](1.7-week7/)
 
-**Tuần 8:** [Thực hiện công việc H...](1.8-week8/)
+**Tuần 8:** [Ứng dụng không máy chủ Serverless, tích hợp API và xác thực người dùng](1.8-week8/)
 
-**Tuần 9:** [Thực hiện công việc I...](1.9-week9/)
+**Tuần 9:** [Điều phối Container có quản lý và luồng triển khai tự động CI/CD](1.9-week9/)
 
-**Tuần 10:** [Thực hiện công việc L...](1.10-week10/)
+**Tuần 10:** [Quản lý hạ tầng bằng mã nguồn (IaC) và khung giám sát mối đe dọa](1.10-week10/)
 
-**Tuần 11:** [Thực hiện công việc M...](1.11-week11/)
+**Tuần 11:** [Triển khai thực tế và kiểm tra hạ tầng dự án cuối khóa](1.11-week11/)
 
-**Tuần 12:** [Thực hiện công việc N...](1.12-week12/)
+**Tuần 12:** [Tổng hợp báo cáo kỹ thuật cuối khóa và tối ưu hóa tài liệu](1.12-week12/)
