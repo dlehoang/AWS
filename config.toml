@@ -28,7 +28,7 @@ languageName = "English"
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fab fa-github'></i> GitHub Repository"
 identifier = "GitHub Repo"
-url = "https://github.com/HoangAnh-J/fcj-workshop-template-main"
+url = "https://github.com/dlehoang/AWS.git"
 weight = 10
 
 [[Languages.en.menu.shortcuts]]
@@ -47,7 +47,7 @@ languageName = "Tiếng Việt"
 [[Languages.vi.menu.shortcuts]]
 name = "<i class='fab fa-github'></i> GitHub Repository"
 identifier = "GitHub Repo"
-url = "https://github.com/HoangAnh-J/fcj-workshop-template-main"
+url = "https://github.com/dlehoang/AWS.git"
 weight = 10
 
 [[Languages.vi.menu.shortcuts]]

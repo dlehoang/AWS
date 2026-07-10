@@ -1,125 +1,82 @@
 ---
-title: "Event 1"
-date: 2024-01-01
+title: "Sự kiện 1"
+date: 2026-07-09
 weight: 1
 chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
 {{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
+⚠️ **Lưu ý:** Nội dung dưới đây chỉ mang tính chất tham khảo. Vui lòng **không sao chép nguyên văn** vào báo cáo của bạn.
 {{% /notice %}}
 
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# Báo cáo tóm tắt: "Chiến lược học tập, Prompt Engineering và Phát triển phần mềm với AI"
 
-### Mục Đích Của Sự Kiện
+### Mục tiêu sự kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+- Chia sẻ các phương pháp học tập hiệu quả dựa trên tâm lý học và cơ chế trò chơi.
+- Giới thiệu kỹ thuật Prompt Engineering để nâng cao chất lượng phản hồi của AI.
+- Trình bày các ứng dụng AI thực tế được triển khai trên nền tảng AWS.
+- Chia sẻ tư duy nghề nghiệp và quy trình phát triển phần mềm với sự hỗ trợ của AI.
 
-### Danh Sách Diễn Giả
+### Diễn giả
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+- **Hoàng Long** – *Nghiện học như nghiện mạng xã hội*
+- **Tuấn Thịnh** – *Tối ưu Prompt tự động: Nâng cao chất lượng phản hồi của Mô hình Ngôn ngữ Lớn (LLM)*
+- **Anh Khang** – *Tại sao các bạn chưa đi làm?*
+- **Chị Thảo** – *Phương pháp BMX (BMM) trong phát triển phần mềm với AI*
 
-### Nội Dung Nổi Bật
+### Nội dung nổi bật
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### Nghiện học như nghiện mạng xã hội
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+- Phân tích nguyên nhân khiến con người dễ bị thu hút bởi game và mạng xã hội hơn việc học.
+- Giới thiệu các phương pháp tạo động lực học tập như hệ thống phần thưởng ngẫu nhiên, duy trì chuỗi học tập (streak), quy tắc 2 phút và cơ chế tăng cấp (XP).
+- Khuyến khích áp dụng gamification để hình thành thói quen học tập lâu dài.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### Tối ưu Prompt tự động: Nâng cao chất lượng phản hồi của Mô hình Ngôn ngữ Lớn (LLM)
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+- Phân tích các vấn đề khi sử dụng prompt chưa rõ ràng, dẫn đến kết quả thiếu chính xác và hiện tượng AI "hallucination".
+- Giới thiệu 7 thành phần quan trọng của một prompt chất lượng gồm: Role, Instruction, Context, Input, Output Format, Examples và Constraint.
+- Trình bày các kỹ thuật nâng cao như Chain of Thought, Self-Consistency và Tree of Thought.
+- Minh họa ứng dụng thực tế thông qua dự án tối ưu prompt sử dụng Amazon Bedrock, Lambda, API Gateway, CloudFront, S3, Cognito và DynamoDB.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+#### Tại sao các bạn chưa đi làm? & Phương pháp BMX
 
-#### Domain-Driven Design (DDD)
+- Chia sẻ tư duy nghề nghiệp trong thời đại AI, nhấn mạnh tầm quan trọng của tư duy nền tảng, sự chính trực và kỹ năng làm việc nhóm.
+- Khẳng định AI là công cụ hỗ trợ giúp nâng cao năng suất chứ không thay thế hoàn toàn lập trình viên.
+- Giới thiệu phương pháp BMX (BMM), chia quy trình phát triển phần mềm thành nhiều AI Agent với các vai trò như PM, Architect, Scrum Master, Dev và Review để giảm lỗi và nâng cao chất lượng sản phẩm.
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+### Bài học rút ra
 
-#### Event-Driven Architecture
+#### Tư duy học tập
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+- Chia nhỏ mục tiêu và duy trì thói quen học tập đều đặn giúp tăng hiệu quả và giảm sự trì hoãn.
+- Gamification là phương pháp hữu ích để tạo động lực học tập lâu dài.
 
-#### Compute Evolution
+#### Trí tuệ nhân tạo
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+- Prompt được thiết kế tốt sẽ giúp AI tạo ra kết quả chính xác và chất lượng hơn.
+- Các kỹ thuật Prompt Engineering góp phần giảm hiện tượng AI trả lời sai và nâng cao hiệu quả làm việc.
 
-#### Amazon Q Developer
+#### Phát triển phần mềm
 
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+- AI nên được sử dụng như một trợ lý hỗ trợ thay vì phụ thuộc hoàn toàn.
+- Quy trình phát triển rõ ràng cùng sự phối hợp của các AI Agent giúp tối ưu chất lượng dự án và giảm thiểu lỗi.
 
-### Những Gì Học Được
+### Áp dụng vào công việc
 
-#### Tư Duy Thiết Kế
+- Áp dụng phương pháp gamification để xây dựng thói quen học tập hiệu quả.
+- Thiết kế prompt có cấu trúc khi làm việc với các công cụ AI.
+- Nghiên cứu và ứng dụng các dịch vụ AI của AWS vào các dự án thực tế.
+- Vận dụng phương pháp BMX để tổ chức quy trình phát triển phần mềm với sự hỗ trợ của AI.
 
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
+### Trải nghiệm tại sự kiện
 
-#### Kiến Trúc Kỹ Thuật
+Tham gia sự kiện giúp tôi hiểu rõ hơn về cách xây dựng thói quen học tập hiệu quả, tối ưu hóa việc sử dụng AI thông qua Prompt Engineering và áp dụng AI vào quy trình phát triển phần mềm. Các diễn giả không chỉ chia sẻ kiến thức lý thuyết mà còn trình bày nhiều ví dụ thực tế và các dự án triển khai trên nền tảng AWS. Những nội dung này giúp tôi có thêm góc nhìn về cách kết hợp AI với kỹ năng chuyên môn để nâng cao hiệu quả học tập, làm việc và phát triển các dự án trong tương lai.
 
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
+#### Hình ảnh sự kiện
 
-#### Chiến Lược Hiện Đại Hóa
+![AWS Community Day](/images/event1.jpg)
 
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
-
-### Ứng Dụng Vào Công Việc
-
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
-
-### Trải nghiệm trong event
-
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
-
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
-
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
-
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
-
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
-
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
-
-#### Một số hình ảnh khi tham gia sự kiện
-* Thêm các hình ảnh của các bạn tại đây
-> Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.
+> Nhìn chung, sự kiện mang đến nhiều kiến thức bổ ích về phương pháp học tập, Prompt Engineering và phát triển phần mềm với AI. Những chia sẻ từ các diễn giả giúp tôi hiểu rõ hơn cách ứng dụng AI một cách hiệu quả, đồng thời định hướng việc học tập và phát triển kỹ năng trong thời đại công nghệ số.

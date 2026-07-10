@@ -1,115 +1,425 @@
 ---
 title: "Proposal"
-date: 2024-01-01
+date: 2026-07-09
 weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
+
 {{% notice warning %}}
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
 {{% /notice %}}
 
-In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
+This proposal presents the Smart Parking System built on Amazon Web Services (AWS). The platform leverages cloud-native and event-driven architecture to provide real-time parking management, online booking, IoT integration, and automated notifications.
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# Smart Parking System on AWS
+## Cloud-Native Smart Parking Management Platform
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+
+The Smart Parking System is designed to help drivers quickly find available parking spaces, reserve parking slots, make online payments, and receive notifications in real time.
+
+The platform adopts a Cloud-Native Microservices Architecture running on Amazon ECS with Event-Driven communication using Amazon EventBridge. IoT devices such as RFID readers, cameras, ESP32 sensors, and barrier gates continuously update parking status through AWS IoT Core.
+
+The system is scalable, highly available, secure, and suitable for deployment in shopping malls, office buildings, hospitals, universities, and smart cities.
+
+---
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+
+### What's the Problem?
+
+Traditional parking systems still rely heavily on manual management.
+
+Common problems include:
+
+- Drivers spend a long time searching for parking spaces.
+- Parking availability is not updated in real time.
+- Manual ticket management causes human errors.
+- Payment processes are inconvenient.
+- Administrators cannot effectively monitor parking occupancy.
+- Difficult to expand to multiple parking locations.
 
 ### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
+
+The Smart Parking System utilizes AWS Cloud services to build a centralized parking management platform.
+
+Key capabilities include:
+
+- Real-time parking slot monitoring.
+- Online parking reservation.
+- QR Code generation.
+- Online payment integration.
+- IoT device integration.
+- Automated email notifications.
+- Event-driven microservices architecture.
+- Highly scalable cloud infrastructure.
+
+---
 
 ### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+
+The proposed solution offers:
+
+- Reduced parking search time.
+- Improved parking utilization.
+- Lower operational costs.
+- Automated parking management.
+- Better customer experience.
+- Easier maintenance through managed AWS services.
+- Easy expansion to multiple parking locations.
+
+The system primarily uses AWS Managed Services, minimizing infrastructure maintenance costs while supporting future business growth.
+
+---
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
+The platform follows a layered cloud architecture consisting of:
 
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
+- Presentation Layer
+- Application Layer
+- Integration Layer
+- IoT Layer
+- Data Layer
+- Security & Monitoring Layer
+
+Architecture Diagram:
+
+![Smart Parking Architecture](/images/2-Proposal/smart_parking_architecture.jpg)
+
+---
 
 ### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
+
+- Amazon Route 53
+- Amazon CloudFront
+- AWS WAF
+- Internet Gateway
+- External Application Load Balancer
+- Internal Application Load Balancer
+- Amazon ECS
+- Amazon EventBridge
+- AWS Lambda
+- Amazon SQS
+- Amazon SNS
+- Amazon SES
+- AWS IoT Core
+- Amazon RDS
+- Amazon S3
+- NAT Gateway
+- Amazon CloudWatch
+- AWS IAM
+- AWS Secrets Manager
+- AWS Certificate Manager
+
+---
 
 ### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+
+#### Presentation Layer
+
+Users access the system through Web or Mobile applications.
+
+Request Flow:
+
+User
+
+↓
+
+Internet
+
+↓
+
+Amazon Route 53
+
+↓
+
+Amazon CloudFront
+
+↓
+
+AWS WAF
+
+↓
+
+Internet Gateway
+
+↓
+
+External Application Load Balancer
+
+↓
+
+Internal Application Load Balancer
+
+↓
+
+Amazon ECS Cluster
+
+---
+
+#### Application Layer
+
+Backend services are deployed on Amazon ECS using Cloud-Native Microservices.
+
+Main services include:
+
+- Auth Service
+- User Service
+- Parking Service
+- Booking Service
+- Payment Service
+
+The ECS Cluster is deployed inside a Private Subnet.
+
+When external communication is required (VNPay, Google Maps API, third-party APIs), ECS accesses the Internet through:
+
+Amazon ECS
+
+↓
+
+NAT Gateway
+
+↓
+
+Internet Gateway
+
+↓
+
+Internet
+
+---
+
+#### Integration Layer
+
+The platform adopts Event-Driven Architecture.
+
+Amazon EventBridge receives events from ECS services.
+
+AWS Lambda performs background processing such as:
+
+- QR Code generation
+- Data processing
+- Business workflows
+
+Amazon SQS buffers asynchronous tasks.
+
+Amazon SNS and Amazon SES deliver notifications to users.
+
+---
+
+#### IoT Layer
+
+Parking devices include:
+
+- RFID Reader
+- Camera
+- ESP32 Sensor
+- Barrier Gate
+
+Device data is transmitted to AWS IoT Core.
+
+Parking Service updates parking slot status accordingly.
+
+---
+
+#### Data Layer
+
+Amazon RDS stores:
+
+- Users
+- Parking Lots
+- Reservations
+- Payments
+- Vehicles
+
+Amazon S3 stores:
+
+- QR Codes
+- Vehicle Images
+- Camera Snapshots
+- Reports
+- PDF Receipts
+
+---
+
+### Security Layer
+
+The system uses:
+
+- AWS IAM
+- AWS Secrets Manager
+- AWS Certificate Manager
+
+IAM Roles are assigned directly to ECS Tasks to securely access AWS resources.
+
+---
+
+### Monitoring Layer
+
+Amazon CloudWatch collects:
+
+- Logs
+- Metrics
+- CPU
+- Memory
+- Alarms
+
+CloudWatch provides centralized monitoring and alerting.
+
+---
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+Implementation consists of four phases.
+
+#### Phase 1
+
+- Business analysis
+- Requirement gathering
+- Architecture design
+
+#### Phase 2
+
+- AWS infrastructure deployment
+- Networking configuration
+- ECS deployment
+- Database configuration
+
+#### Phase 3
+
+Application development
+
+- Authentication
+- Parking Management
+- Booking
+- Payment
+- Notification
+- IoT Integration
+
+#### Phase 4
+
+Testing
+
+- Functional Testing
+- Integration Testing
+- Load Testing
+- Deployment
+
+---
+
+### Technical Requirements
+
+Programming Languages
+
+- Java Spring Boot / Node.js
+- React / Flutter
+
+Database
+
+- Amazon RDS MySQL
+
+Container
+
+- Docker
+- Amazon ECS
+
+Infrastructure
+
+- AWS Cloud
+
+IoT Devices
+
+- ESP32
+- RFID Reader
+- Camera
+- Barrier Gate
+
+---
 
 ### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+
+Month 1
+
+- Requirement Analysis
+- AWS Architecture Design
+
+Month 2
+
+- Infrastructure Deployment
+- Backend Development
+
+Month 3
+
+- Frontend Development
+- IoT Integration
+- Testing
+
+Month 4
+
+- Deployment
+- Documentation
+- Final Presentation
+
+---
 
 ### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+AWS resources mainly consist of managed services.
 
-Total: $0.7/month, $8.40/12 months
+Estimated monthly services include:
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+- Amazon ECS
+- Amazon RDS
+- Amazon S3
+- EventBridge
+- Lambda
+- SQS
+- SNS
+- SES
+- CloudFront
+- Route53
+- CloudWatch
+
+The estimated infrastructure cost remains below the AWS Educate promotional budget and can be optimized further through AWS Free Tier where applicable.
+
+---
 
 ### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
+#### Risks
 
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
+- Internet connectivity failure
+- IoT device malfunction
+- Unexpected AWS costs
+- High traffic spikes
+
+#### Mitigation
+
+- CloudWatch monitoring
+- Auto Scaling
+- Budget Alerts
+- Multi-AZ Database
+- Event Queue with Amazon SQS
+
+---
 
 ### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+
+Technical Outcomes
+
+- Cloud-native Microservices platform
+- Real-time parking monitoring
+- Online reservation
+- IoT integration
+- Automated notifications
+- Secure cloud infrastructure
+
+Business Outcomes
+
+- Reduced parking search time
+- Better parking utilization
+- Improved customer experience
+- Lower operational costs
+- Easy future expansion for Smart City applications

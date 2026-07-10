@@ -1,7 +1,7 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
-weight: 1
+date: 2026-07-09
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
@@ -10,118 +10,234 @@ pre: " <b> 3.2. </b> "
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-# Bắt đầu với healthcare data lakes: Sử dụng microservices
+# Xây dựng kiến trúc Microservices cho hệ thống Smart Parking trên AWS
 
-Các data lake có thể giúp các bệnh viện và cơ sở y tế chuyển dữ liệu thành những thông tin chi tiết về doanh nghiệp và duy trì hoạt động kinh doanh liên tục, đồng thời bảo vệ quyền riêng tư của bệnh nhân. **Data lake** là một kho lưu trữ tập trung, được quản lý và bảo mật để lưu trữ tất cả dữ liệu của bạn, cả ở dạng ban đầu và đã xử lý để phân tích. data lake cho phép bạn chia nhỏ các kho chứa dữ liệu và kết hợp các loại phân tích khác nhau để có được thông tin chi tiết và đưa ra các quyết định kinh doanh tốt hơn.
+Trong các hệ thống quản lý bãi đỗ xe thông minh, ứng dụng cần xử lý đồng thời nhiều nghiệp vụ như xác thực người dùng, quản lý bãi xe, đặt chỗ, thanh toán, gửi thông báo và cập nhật dữ liệu từ các thiết bị IoT theo thời gian thực. Nếu toàn bộ chức năng được xây dựng trong một ứng dụng đơn khối (Monolithic), việc mở rộng, bảo trì và triển khai sẽ gặp nhiều khó khăn khi số lượng người dùng tăng lên.
 
-Bài đăng trên blog này là một phần của loạt bài lớn hơn về việc bắt đầu cài đặt data lake dành cho lĩnh vực y tế. Trong bài đăng blog cuối cùng của tôi trong loạt bài, *“Bắt đầu với data lake dành cho lĩnh vực y tế: Đào sâu vào Amazon Cognito”*, tôi tập trung vào các chi tiết cụ thể của việc sử dụng Amazon Cognito và Attribute Based Access Control (ABAC) để xác thực và ủy quyền người dùng trong giải pháp data lake y tế. Trong blog này, tôi trình bày chi tiết cách giải pháp đã phát triển ở cấp độ cơ bản, bao gồm các quyết định thiết kế mà tôi đã đưa ra và các tính năng bổ sung được sử dụng. Bạn có thể truy cập các code samples cho giải pháp tại Git repo này để tham khảo.
-
----
-
-## Hướng dẫn kiến trúc
-
-Thay đổi chính kể từ lần trình bày cuối cùng của kiến trúc tổng thể là việc tách dịch vụ đơn lẻ thành một tập hợp các dịch vụ nhỏ để cải thiện khả năng bảo trì và tính linh hoạt. Việc tích hợp một lượng lớn dữ liệu y tế khác nhau thường yêu cầu các trình kết nối chuyên biệt cho từng định dạng; bằng cách giữ chúng được đóng gói riêng biệt với microservices, chúng ta có thể thêm, xóa và sửa đổi từng trình kết nối mà không ảnh hưởng đến những kết nối khác. Các microservices được kết nối rời thông qua tin nhắn publish/subscribe tập trung trong cái mà tôi gọi là “pub/sub hub”.
-
-Giải pháp này đại diện cho những gì tôi sẽ coi là một lần lặp nước rút hợp lý khác từ last post của tôi. Phạm vi vẫn được giới hạn trong việc nhập và phân tích cú pháp đơn giản của các **HL7v2 messages** được định dạng theo **Quy tắc mã hóa 7 (ER7)** thông qua giao diện REST.
-
-**Kiến trúc giải pháp bây giờ như sau:**
-
-> *Hình 1. Kiến trúc tổng thể; những ô màu thể hiện những dịch vụ riêng biệt.*
+Để giải quyết vấn đề này, hệ thống **Smart Parking System on AWS** được thiết kế theo kiến trúc **Cloud Native Microservices**, triển khai trên **Amazon Elastic Container Service (Amazon ECS)** kết hợp với các dịch vụ Event-Driven của AWS nhằm tăng khả năng mở rộng, giảm sự phụ thuộc giữa các thành phần và nâng cao tính sẵn sàng của hệ thống.
 
 ---
 
-Mặc dù thuật ngữ *microservices* có một số sự mơ hồ cố hữu, một số đặc điểm là chung:  
-- Chúng nhỏ, tự chủ, kết hợp rời rạc  
-- Có thể tái sử dụng, giao tiếp thông qua giao diện được xác định rõ  
-- Chuyên biệt để giải quyết một việc  
-- Thường được triển khai trong **event-driven architecture**
+# Kiến trúc Microservices
 
-Khi xác định vị trí tạo ranh giới giữa các microservices, cần cân nhắc:  
-- **Nội tại**: công nghệ được sử dụng, hiệu suất, độ tin cậy, khả năng mở rộng  
-- **Bên ngoài**: chức năng phụ thuộc, tần suất thay đổi, khả năng tái sử dụng  
-- **Con người**: quyền sở hữu nhóm, quản lý *cognitive load*
+Thay vì triển khai toàn bộ chức năng trong một ứng dụng duy nhất, hệ thống được chia thành nhiều Microservice độc lập.
 
----
+Các Microservice chính bao gồm:
 
-## Lựa chọn công nghệ và phạm vi giao tiếp
+- Auth Service
+- User Service
+- Parking Service
+- Booking Service
+- Payment Service
+- Notification Service
 
-| Phạm vi giao tiếp                        | Các công nghệ / mô hình cần xem xét                                                        |
-| ---------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Trong một microservice                   | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Giữa các microservices trong một dịch vụ | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Giữa các dịch vụ                         | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Mỗi Microservice chỉ đảm nhiệm một nhóm chức năng riêng và giao tiếp với nhau thông qua các sự kiện (Event), giúp hệ thống dễ dàng mở rộng cũng như bảo trì.
 
 ---
 
-## The pub/sub hub
+# Vì sao lựa chọn Microservices?
 
-Việc sử dụng kiến trúc **hub-and-spoke** (hay message broker) hoạt động tốt với một số lượng nhỏ các microservices liên quan chặt chẽ.  
-- Mỗi microservice chỉ phụ thuộc vào *hub*  
-- Kết nối giữa các microservice chỉ giới hạn ở nội dung của message được xuất  
-- Giảm số lượng synchronous calls vì pub/sub là *push* không đồng bộ một chiều
+Kiến trúc Microservices mang lại nhiều lợi ích cho hệ thống Smart Parking.
 
-Nhược điểm: cần **phối hợp và giám sát** để tránh microservice xử lý nhầm message.
+Các ưu điểm nổi bật gồm:
 
----
+- Triển khai độc lập từng dịch vụ.
+- Dễ dàng mở rộng riêng từng Microservice.
+- Giảm ảnh hưởng khi một dịch vụ gặp sự cố.
+- Hỗ trợ nhiều nhóm phát triển song song.
+- Thuận tiện bổ sung các chức năng mới trong tương lai.
 
-## Core microservice
-
-Cung cấp dữ liệu nền tảng và lớp truyền thông, gồm:  
-- **Amazon S3** bucket cho dữ liệu  
-- **Amazon DynamoDB** cho danh mục dữ liệu  
-- **AWS Lambda** để ghi message vào data lake và danh mục  
-- **Amazon SNS** topic làm *hub*  
-- **Amazon S3** bucket cho artifacts như mã Lambda
-
-> Chỉ cho phép truy cập ghi gián tiếp vào data lake qua hàm Lambda → đảm bảo nhất quán.
+Toàn bộ Backend được triển khai trong **Amazon ECS Cluster** thuộc **Private Subnet**, đảm bảo các dịch vụ không truy cập trực tiếp từ Internet.
 
 ---
 
-## Front door microservice
+# Các Microservice chính
 
-- Cung cấp API Gateway để tương tác REST bên ngoài  
-- Xác thực & ủy quyền dựa trên **OIDC** thông qua **Amazon Cognito**  
-- Cơ chế *deduplication* tự quản lý bằng DynamoDB thay vì SNS FIFO vì:
-  1. SNS deduplication TTL chỉ 5 phút
-  2. SNS FIFO yêu cầu SQS FIFO
-  3. Chủ động báo cho sender biết message là bản sao
+## Auth Service
 
----
+Auth Service chịu trách nhiệm:
 
-## Staging ER7 microservice
+- Đăng ký tài khoản.
+- Đăng nhập.
+- Xác thực JWT.
+- Phân quyền người dùng.
 
-- Lambda “trigger” đăng ký với pub/sub hub, lọc message theo attribute  
-- Step Functions Express Workflow để chuyển ER7 → JSON  
-- Hai Lambda:
-  1. Sửa format ER7 (newline, carriage return)
-  2. Parsing logic  
-- Kết quả hoặc lỗi được đẩy lại vào pub/sub hub
+Đây là dịch vụ đầu tiên xử lý trước khi người dùng truy cập các chức năng khác của hệ thống.
 
 ---
 
-## Tính năng mới trong giải pháp
+## User Service
 
-### 1. AWS CloudFormation cross-stack references
-Ví dụ *outputs* trong core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+User Service quản lý:
+
+- Hồ sơ người dùng.
+- Thông tin phương tiện.
+- Lịch sử đặt chỗ.
+- Lịch sử thanh toán.
+
+---
+
+## Parking Service
+
+Parking Service là thành phần quan trọng nhất của hệ thống.
+
+Chức năng bao gồm:
+
+- Quản lý bãi đỗ xe.
+- Quản lý trạng thái các vị trí đỗ.
+- Đồng bộ dữ liệu từ AWS IoT Core.
+- Cập nhật trạng thái bãi xe theo thời gian thực.
+
+Khi Camera, RFID Reader hoặc ESP32 phát hiện xe ra vào, Parking Service sẽ cập nhật trạng thái Slot trong Amazon RDS.
+
+---
+
+## Booking Service
+
+Booking Service xử lý các nghiệp vụ:
+
+- Đặt chỗ.
+- Hủy đặt chỗ.
+- Kiểm tra vị trí còn trống.
+- Sinh mã QR.
+
+Sau khi đặt chỗ thành công, dịch vụ sẽ phát sinh một sự kiện để các dịch vụ khác tiếp tục xử lý.
+
+---
+
+## Payment Service
+
+Payment Service quản lý:
+
+- Thanh toán.
+- Hóa đơn.
+- Lịch sử giao dịch.
+
+Kiến trúc được thiết kế để dễ dàng tích hợp với nhiều cổng thanh toán như:
+
+- VNPay
+- Stripe
+- PayPal
+- MoMo
+
+---
+
+## Notification Service
+
+Notification Service chịu trách nhiệm gửi thông báo đến người dùng.
+
+Bao gồm:
+
+- Email xác nhận đặt chỗ.
+- Email thanh toán.
+- Mã QR.
+- Thông báo trạng thái xe ra vào.
+
+Dịch vụ sử dụng Amazon SNS và Amazon SES để gửi thông báo.
+
+---
+
+# Giao tiếp giữa các Microservice
+
+Thay vì gọi trực tiếp lẫn nhau, các Microservice giao tiếp theo mô hình **Event-Driven Architecture**.
+
+Ví dụ luồng xử lý:
+
+Booking Service
+
+↓
+
+Amazon EventBridge
+
+↓
+
+AWS Lambda
+
+↓
+
+Notification Service
+
+↓
+
+Amazon SES
+
+Cách tiếp cận này giúp giảm sự phụ thuộc giữa các dịch vụ, đồng thời tăng khả năng mở rộng của hệ thống.
+
+---
+
+# Amazon EventBridge
+
+Amazon EventBridge đóng vai trò là trung tâm tiếp nhận và phân phối các sự kiện.
+
+Một số sự kiện của hệ thống:
+
+- BookingCreated
+- PaymentCompleted
+- VehicleCheckedIn
+- VehicleCheckedOut
+
+Mỗi sự kiện sẽ được tự động chuyển đến đúng Microservice cần xử lý.
+
+---
+
+# AWS Lambda
+
+AWS Lambda xử lý các tác vụ nền như:
+
+- Sinh mã QR.
+- Chuẩn bị Email.
+- Xử lý dữ liệu.
+- Đồng bộ thông tin.
+- Kích hoạt Notification.
+
+Lambda chỉ được kích hoạt khi có sự kiện nên giúp tối ưu tài nguyên và giảm chi phí vận hành.
+
+---
+
+# Amazon SQS
+
+Amazon Simple Queue Service (Amazon SQS) được sử dụng để xử lý bất đồng bộ.
+
+Khi lượng người dùng tăng cao, các yêu cầu sẽ được đưa vào Queue trước khi xử lý.
+
+Việc sử dụng Amazon SQS giúp:
+
+- Không mất dữ liệu.
+- Tăng khả năng chịu tải.
+- Giảm nghẽn hệ thống.
+- Đảm bảo xử lý tuần tự.
+
+---
+
+# Amazon SNS và Amazon SES
+
+Sau khi Lambda hoàn thành xử lý, Notification Service sẽ sử dụng:
+
+- Amazon SNS để phát thông báo.
+- Amazon SES để gửi Email.
+
+Người dùng sẽ nhận được:
+
+- Email xác nhận đặt chỗ.
+- Email xác nhận thanh toán.
+- QR Code.
+- Thông báo trạng thái bãi xe.
+
+---
+
+# Lợi ích của kiến trúc
+
+Việc triển khai Amazon ECS kết hợp với Amazon EventBridge, AWS Lambda, Amazon SQS, Amazon SNS và Amazon SES mang lại nhiều lợi ích:
+
+- Dễ dàng mở rộng từng Microservice.
+- Giảm sự phụ thuộc giữa các dịch vụ.
+- Tăng tính sẵn sàng của hệ thống.
+- Xử lý bất đồng bộ hiệu quả.
+- Dễ bảo trì và nâng cấp.
+- Tối ưu chi phí nhờ sử dụng các dịch vụ Managed Services của AWS.
+
+---
+
+# Kết luận
+
+Kiến trúc Cloud Native Microservices kết hợp Event-Driven Architecture giúp hệ thống Smart Parking hoạt động ổn định, linh hoạt và dễ dàng mở rộng. Đây là nền tảng phù hợp để phát triển thêm các tính năng như nhận diện biển số xe bằng AI, phân tích dữ liệu bãi đỗ, dự báo lưu lượng phương tiện và triển khai đa khu vực (Multi-Region) trong tương lai.

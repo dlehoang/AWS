@@ -1,126 +1,246 @@
 ---
 title: "Blog 2"
-date: 2024-01-01
-weight: 1
+date: 2026-07-09
+weight: 2
 chapter: false
 pre: " <b> 3.2. </b> "
 ---
+
 {{% notice warning %}}
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
 {{% /notice %}}
 
-# Getting Started with Healthcare Data Lakes: Using Microservices
+# Building a Cloud-Native Microservices Architecture for Smart Parking on AWS
 
-Data lakes can help hospitals and healthcare facilities turn data into business insights, maintain business continuity, and protect patient privacy. A **data lake** is a centralized, managed, and secure repository to store all your data, both in its raw and processed forms for analysis. Data lakes allow you to break down data silos and combine different types of analytics to gain insights and make better business decisions.
+Modern smart parking systems must process multiple business functions simultaneously, including user authentication, parking slot management, booking, payment, notifications, and IoT data synchronization. Implementing all these functions in a single monolithic application makes the system difficult to scale, maintain, and deploy.
 
-This blog post is part of a larger series on getting started with setting up a healthcare data lake. In my final post of the series, *“Getting Started with Healthcare Data Lakes: Diving into Amazon Cognito”*, I focused on the specifics of using Amazon Cognito and Attribute Based Access Control (ABAC) to authenticate and authorize users in the healthcare data lake solution. In this blog, I detail how the solution evolved at a foundational level, including the design decisions I made and the additional features used. You can access the code samples for the solution in this Git repo for reference.
-
----
-
-## Architecture Guidance
-
-The main change since the last presentation of the overall architecture is the decomposition of a single service into a set of smaller services to improve maintainability and flexibility. Integrating a large volume of diverse healthcare data often requires specialized connectors for each format; by keeping them encapsulated separately as microservices, we can add, remove, and modify each connector without affecting the others. The microservices are loosely coupled via publish/subscribe messaging centered in what I call the “pub/sub hub.”
-
-This solution represents what I would consider another reasonable sprint iteration from my last post. The scope is still limited to the ingestion and basic parsing of **HL7v2 messages** formatted in **Encoding Rules 7 (ER7)** through a REST interface.
-
-**The solution architecture is now as follows:**
-
-> *Figure 1. Overall architecture; colored boxes represent distinct services.*
+To overcome these challenges, the Smart Parking System adopts a **Cloud-Native Microservices Architecture** running on **Amazon Elastic Container Service (Amazon ECS)**. Each business function is deployed as an independent microservice while communication between services is handled using AWS event-driven services.
 
 ---
 
-While the term *microservices* has some inherent ambiguity, certain traits are common:  
-- Small, autonomous, loosely coupled  
-- Reusable, communicating through well-defined interfaces  
-- Specialized to do one thing well  
-- Often implemented in an **event-driven architecture**
+## Architecture Overview
 
-When determining where to draw boundaries between microservices, consider:  
-- **Intrinsic**: technology used, performance, reliability, scalability  
-- **Extrinsic**: dependent functionality, rate of change, reusability  
-- **Human**: team ownership, managing *cognitive load*
+Instead of building one large application, the Smart Parking System is divided into several independent microservices.
 
----
+The core services include:
 
-## Technology Choices and Communication Scope
+- Authentication Service
+- User Service
+- Parking Service
+- Booking Service
+- Payment Service
+- Notification Service
 
-| Communication scope                       | Technologies / patterns to consider                                                        |
-| ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Within a single microservice              | Amazon Simple Queue Service (Amazon SQS), AWS Step Functions                               |
-| Between microservices in a single service | AWS CloudFormation cross-stack references, Amazon Simple Notification Service (Amazon SNS) |
-| Between services                          | Amazon EventBridge, AWS Cloud Map, Amazon API Gateway                                      |
+Each microservice focuses on a single business capability and communicates through events instead of direct service-to-service calls.
+
+This architecture improves flexibility, simplifies deployment, and allows each service to scale independently.
 
 ---
 
-## The Pub/Sub Hub
+## Why Microservices?
 
-Using a **hub-and-spoke** architecture (or message broker) works well with a small number of tightly related microservices.  
-- Each microservice depends only on the *hub*  
-- Inter-microservice connections are limited to the contents of the published message  
-- Reduces the number of synchronous calls since pub/sub is a one-way asynchronous *push*
+Microservices provide several important advantages for cloud-native applications.
 
-Drawback: **coordination and monitoring** are needed to avoid microservices processing the wrong message.
+Benefits include:
 
----
+- Independent deployment of each service.
+- Better scalability under heavy workloads.
+- Easier maintenance and upgrades.
+- Improved fault isolation.
+- Faster development for multiple teams.
 
-## Core Microservice
-
-Provides foundational data and communication layer, including:  
-- **Amazon S3** bucket for data  
-- **Amazon DynamoDB** for data catalog  
-- **AWS Lambda** to write messages into the data lake and catalog  
-- **Amazon SNS** topic as the *hub*  
-- **Amazon S3** bucket for artifacts such as Lambda code
-
-> Only allow indirect write access to the data lake through a Lambda function → ensures consistency.
+All backend services are deployed inside an **Amazon ECS Cluster** located in a **Private Subnet**, preventing direct access from the Internet.
 
 ---
 
-## Front Door Microservice
+## Core Business Services
 
-- Provides an API Gateway for external REST interaction  
-- Authentication & authorization based on **OIDC** via **Amazon Cognito**  
-- Self-managed *deduplication* mechanism using DynamoDB instead of SNS FIFO because:  
-  1. SNS deduplication TTL is only 5 minutes  
-  2. SNS FIFO requires SQS FIFO  
-  3. Ability to proactively notify the sender that the message is a duplicate  
+### Authentication Service
 
----
+The Authentication Service manages:
 
-## Staging ER7 Microservice
+- User registration
+- User login
+- JWT authentication
+- Authorization
 
-- Lambda “trigger” subscribed to the pub/sub hub, filtering messages by attribute  
-- Step Functions Express Workflow to convert ER7 → JSON  
-- Two Lambdas:  
-  1. Fix ER7 formatting (newline, carriage return)  
-  2. Parsing logic  
-- Result or error is pushed back into the pub/sub hub  
+Every request must be authenticated before accessing protected resources.
 
 ---
 
-## New Features in the Solution
+### User Service
 
-### 1. AWS CloudFormation Cross-Stack References
-Example *outputs* in the core microservice:
-```yaml
-Outputs:
-  Bucket:
-    Value: !Ref Bucket
-    Export:
-      Name: !Sub ${AWS::StackName}-Bucket
-  ArtifactBucket:
-    Value: !Ref ArtifactBucket
-    Export:
-      Name: !Sub ${AWS::StackName}-ArtifactBucket
-  Topic:
-    Value: !Ref Topic
-    Export:
-      Name: !Sub ${AWS::StackName}-Topic
-  Catalog:
-    Value: !Ref Catalog
-    Export:
-      Name: !Sub ${AWS::StackName}-Catalog
-  CatalogArn:
-    Value: !GetAtt Catalog.Arn
-    Export:
-      Name: !Sub ${AWS::StackName}-CatalogArn
+The User Service manages:
+
+- User profiles
+- Vehicle information
+- Booking history
+- Payment history
+
+---
+
+### Parking Service
+
+Parking Service is the core business component of the Smart Parking platform.
+
+Responsibilities include:
+
+- Parking lot management
+- Parking slot availability
+- Occupancy status updates
+- Synchronization with AWS IoT Core
+
+Whenever an IoT device detects a vehicle entering or leaving the parking lot, the Parking Service updates the parking status inside Amazon RDS.
+
+---
+
+### Booking Service
+
+Booking Service manages parking reservations.
+
+Functions include:
+
+- Reserve parking slots
+- Cancel bookings
+- Check slot availability
+- Generate QR Codes
+
+After a booking is successfully created, the service publishes an event for downstream processing.
+
+---
+
+### Payment Service
+
+Payment Service handles:
+
+- Online payments
+- Transaction history
+- Billing information
+
+The architecture can easily integrate with payment gateways such as:
+
+- VNPay
+- Stripe
+- PayPal
+- MoMo
+
+---
+
+### Notification Service
+
+Notification Service sends notifications to users, including:
+
+- Booking confirmation
+- Payment confirmation
+- QR Code delivery
+- Parking status notifications
+
+Notifications are delivered through Amazon SNS and Amazon SES.
+
+---
+
+## Event-Driven Communication
+
+Rather than calling each other directly, all services communicate using an **Event-Driven Architecture**.
+
+A typical workflow is shown below:
+
+Booking Service
+
+↓
+
+Amazon EventBridge
+
+↓
+
+AWS Lambda
+
+↓
+
+Notification Service
+
+↓
+
+Amazon SES
+
+This approach significantly reduces service dependencies while improving scalability and system resilience.
+
+---
+
+## Amazon EventBridge
+
+Amazon EventBridge acts as the central event bus of the platform.
+
+Typical events include:
+
+- BookingCreated
+- PaymentCompleted
+- VehicleCheckedIn
+- VehicleCheckedOut
+
+Each event is automatically routed to the appropriate service without requiring direct integration between microservices.
+
+---
+
+## AWS Lambda
+
+AWS Lambda executes background tasks such as:
+
+- QR Code generation
+- Data processing
+- Notification preparation
+- Business event handling
+
+Because Lambda only runs when triggered, it helps reduce operational costs while supporting automatic scaling.
+
+---
+
+## Amazon SQS
+
+Amazon Simple Queue Service (Amazon SQS) provides asynchronous message processing.
+
+During traffic spikes, requests are temporarily stored inside queues before processing.
+
+Using Amazon SQS provides:
+
+- Reliable message delivery
+- Better fault tolerance
+- Load balancing
+- Improved scalability
+
+---
+
+## Amazon SNS and Amazon SES
+
+After background processing is completed, Notification Service sends messages through:
+
+- Amazon SNS
+- Amazon SES
+
+Users receive:
+
+- Booking confirmation emails
+- Payment confirmation emails
+- QR Codes
+- Parking notifications
+
+---
+
+## Benefits of the Architecture
+
+Deploying Smart Parking with Amazon ECS and AWS event-driven services provides several advantages:
+
+- Independent scaling for each microservice.
+- Reduced coupling between services.
+- High availability.
+- Better fault tolerance.
+- Lower infrastructure management effort.
+- Cost optimization using AWS managed services.
+
+---
+
+## Conclusion
+
+By combining Amazon ECS, Amazon EventBridge, AWS Lambda, Amazon SQS, Amazon SNS, and Amazon SES, the Smart Parking System achieves a flexible, scalable, and highly available cloud-native architecture.
+
+This design also provides a strong foundation for future enhancements such as AI-based license plate recognition, predictive parking analytics, and multi-region deployment.

@@ -10,10 +10,9 @@ pre: " <b> 6. </b> "
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
-Trong suốt thời gian thực tập tại **[Tên công ty/tổ chức]** từ **[ngày bắt đầu]** đến **[ngày kết thúc]**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
-Tôi đã tham gia **[mô tả ngắn gọn dự án hoặc công việc chính]**, qua đó cải thiện kỹ năng **[liệt kê kỹ năng: lập trình, phân tích, viết báo cáo, giao tiếp…]**.  
+Trong quá trình thực tập tại AWS Vietnam từ ngày 17/04/2026 đến ngày 10/07/2026, em đã có cơ hội học hỏi, thực hành và áp dụng những kiến thức đã tích lũy từ nhà trường vào môi trường làm việc thực tế.
 
-Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
+Em đã tham gia phân tích yêu cầu, thiết kế kiến trúc đám mây phân tầng và trực tiếp triển khai hệ thống hạ tầng có tính sẵn sàng cao, bảo mật và tự động hóa toàn diện trên nền tảng Amazon Web Services (AWS), qua đó giúp em nâng cao các kỹ năng về Thiết kế giải pháp đám mây, lập trình quản lý hạ tầng bằng mã (IaC), cấu hình luồng tự động hóa triển khai phần mềm (CI/CD), kiểm soát an ninh đám mây và biên soạn tài liệu kỹ thuật chuyên nghiệp.
 
 Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
 

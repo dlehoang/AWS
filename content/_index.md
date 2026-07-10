@@ -19,7 +19,7 @@ chapter: false
 
 &emsp; **Email:** hoangflamedn@gmail.com
 
-&emsp; **University:** Ho Chi Minh City University of Technology and Education
+&emsp; **University:** Ho Chi Minh City University of Technology
 
 &emsp; **Major:** Information Technology
 

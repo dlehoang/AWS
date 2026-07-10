@@ -1,57 +1,31 @@
 ---
 title: "Week 12 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-07-09
+weight: 12
 chapter: false
 pre: " <b> 1.12. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 
 ### Week 12 Objectives:
 
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Finalize security integration, continuous deployment pipelines, and global content delivery solutions for the capstone project.
+* Evaluate final system performance, clean up redundant lab resources for cost efficiency, and write the final internship report.
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
+| Day | Task | Start Date | Completion Date | Reference Material |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-
+| 2   | - Integrate delivery and security mechanisms for the final project: <br>&emsp; + Configure Amazon CloudFront with an S3 Bucket origin to distribute the frontend application <br>&emsp; + Deploy AWS WAF rules to secure the Amazon API Gateway entrypoint | 06/07/2026  | 06/07/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 3   | - Construct end-to-end cloud automation: <br>&emsp; + Create an AWS CodePipeline workflow to automate rolling application updates directly to Amazon ECS Fargate clusters upon code commits | 07/07/2026 | 07/07/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 4   | - Systems acceptance testing, load simulation, and audits: <br>&emsp; + Conduct end-to-end testing across client interfaces, backend compute layers, and database states <br>&emsp; + Review active threat assessments via Amazon GuardDuty logs | 08/07/2026 | 08/07/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 5   | - Cost optimization and infrastructure housekeeping: <br>&emsp; + Teardown (Delete Stacks/Terminate) non-production resources and unused components to avoid post-internship billing charges <br>&emsp; + Package and archive project source repositories | 09/07/2026 | 09/07/2026      | <https://cloudjourney.awsstudygroup.com/> |
+| 6   | - Finalize internship documentation and portfolios: <br>&emsp; + Consolidate engineering milestones and weekly worklogs from Week 1 through Week 12 <br>&emsp; + Author and compile the final Technical Internship Report for submission | 10/07/2026 | 10/07/2026      | <https://cloudjourney.awsstudygroup.com/> |
 
 ### Week 12 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+Successfully interconnected Amazon CloudFront globally to accelerate frontend performance while reinforcing the core API Gateway entry point using dynamic AWS WAF rules.
 
-* Successfully created and configured an AWS Free Tier account.
+Established a production-ready automated CI/CD pipeline (AWS CodePipeline), ensuring smooth rolling deployment releases onto Amazon ECS without application downtime.
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
+Successfully finalized the end-to-end integration tests of the capstone project, ensuring all business logics behave correctly according to initial requirements.
 
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+Audited and terminated idle cloud stacks safely to prevent unnecessary budget leaks, while completing the final comprehensive internship report in compliance with institutional guidelines.

@@ -1,6 +1,6 @@
 ---
 title: "Self-Assessment"
-date: 2024-01-01
+date: 2026-07-09
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
@@ -10,10 +10,9 @@ pre: " <b> 6. </b> "
 ⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
 {{% /notice %}}
 
-During my internship at **[Company/Organization Name]** from **[start date]** to **[end date]**, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.  
-I participated in **[briefly describe the main project or task]**, through which I improved my skills in **[list skills: programming, analysis, reporting, communication, etc.]**.  
+During my internship at AWS Vietnam from April 17, 2026 to July 10, 2026, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.
 
-In terms of work ethic, I always strived to complete tasks well, complied with workplace regulations, and actively engaged with colleagues to improve work efficiency.
+I participated in analyzing requirements, designing complex multi-tier cloud architectures, and deploying highly available, automated, and secure system infrastructures on Amazon Web Services (AWS), through which I improved my skills in Cloud Solutions Architecture, Infrastructure as Code (IaC) engineering, automated CI/CD deployment pipelines orchestration, cloud security auditing, and technical documentation.
 
 To objectively reflect on my internship period, I would like to evaluate myself based on the following criteria:
 
