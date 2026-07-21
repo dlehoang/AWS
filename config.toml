@@ -1,6 +1,6 @@
-baseURL = "https://workshop-sample.fcjuni.com/"
-relativeURLs = false
-canonifyURLs = false
+baseURL = "https://dlehoang.github.io/AWS/"
+relativeURLs = true
+canonifyURLs = true
 defaultContentLanguage = "en"
 
 theme = "hugo-theme-learn"
