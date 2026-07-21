@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 3.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+
 
 # Building a Cloud-Native Microservices Architecture for Smart Parking on AWS
 

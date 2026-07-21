@@ -1,33 +1,39 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-07-10
 weight: 5
 chapter: false
-pre: " <b> 5. </b> "
+pre: "<b> 5. </b>"
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-
-# Đảm bảo truy cập Hybrid an toàn đến S3 bằng cách sử dụng VPC endpoint
+# Triển khai và bảo mật hệ thống Smart Parking trên AWS
 
 #### Tổng quan
 
-**AWS PrivateLink** cung cấp kết nối riêng tư đến các dịch vụ aws từ VPCs hoặc trung tâm dữ liệu (on-premise) mà không làm lộ lưu lượng truy cập ra ngoài public internet.
+Trong workshop này, bạn sẽ triển khai và cấu hình hệ thống **Smart Parking** trên nền tảng AWS bằng các dịch vụ điện toán đám mây. Hệ thống cho phép người dùng tìm kiếm bãi đỗ xe còn chỗ, đặt chỗ trước, thanh toán trực tuyến và nhận thông báo theo thời gian thực.
 
-Trong bài lab này, chúng ta sẽ học cách tạo, cấu hình, và kiểm tra VPC endpoints để cho phép workload của bạn tiếp cận các dịch vụ AWS mà không cần đi qua Internet công cộng.
+Workshop cũng minh họa cách các dịch vụ của AWS phối hợp với nhau để xây dựng một hệ thống Smart Parking có khả năng mở rộng, tính sẵn sàng cao, bảo mật và dễ dàng giám sát.
 
-Chúng ta sẽ tạo hai loại endpoints để truy cập đến Amazon S3: gateway vpc endpoint và interface vpc endpoint. Hai loại vpc endpoints này mang đến nhiều lợi ích tùy thuộc vào việc bạn truy cập đến S3 từ môi trường cloud hay từ trung tâm dữ liệu (on-premise).
-+ **Gateway** - Tạo gateway endpoint để gửi lưu lượng đến Amazon S3 hoặc DynamoDB using private IP addresses. Bạn điều hướng lưu lượng từ VPC của bạn đến gateway endpoint bằng các bảng định tuyến (route tables)
-+ **Interface** - Tạo interface endpoint để gửi lưu lượng đến các dịch vụ điểm cuối (endpoints) sử dụng Network Load Balancer để phân phối lưu lượng. Lưu lượng dành cho dịch vụ điểm cuối được resolved bằng DNS.
+Trong suốt workshop, bạn sẽ từng bước triển khai hạ tầng, cấu hình mạng, kết nối cơ sở dữ liệu, tích hợp lưu trữ, triển khai ứng dụng và giám sát hệ thống bằng các dịch vụ của AWS.
+
+#### Các thành phần kiến trúc
+
+Hệ thống Smart Parking sử dụng các dịch vụ AWS sau:
+
++ **Amazon VPC** - Tạo môi trường mạng riêng biệt và an toàn cho toàn bộ hệ thống.
++ **Amazon ECS (Fargate)** - Triển khai và vận hành các dịch vụ (microservices) của Smart Parking.
++ **Application Load Balancer (ALB)** - Phân phối lưu lượng truy cập đến các dịch vụ backend.
++ **Amazon RDS MySQL** - Lưu trữ dữ liệu người dùng, bãi đỗ xe, đặt chỗ và thanh toán.
++ **Amazon S3** - Lưu trữ hình ảnh bãi xe, mã QR và các tệp tin của hệ thống.
++ **AWS Lambda** - Xử lý các tác vụ tự động theo mô hình serverless.
++ **Amazon SNS / Amazon SES** - Gửi thông báo và email xác nhận đến người dùng.
++ **Amazon CloudWatch** - Thu thập log, giám sát hiệu năng và theo dõi hoạt động của hệ thống.
++ **AWS IAM** - Quản lý người dùng, quyền truy cập và bảo mật tài nguyên.
++ **AWS Secrets Manager** - Lưu trữ an toàn thông tin đăng nhập và các khóa bí mật.
 
 #### Nội dung
 
-1. [Tổng quan về workshop](5.1-Workshop-overview/)
-2. [Chuẩn bị](5.2-Prerequiste/)
-3. [Truy cập đến S3 từ VPC](5.3-S3-vpc/)
-4. [Truy cập đến S3 từ TTDL On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (làm thêm)](5.5-Policy/)
-6. [Dọn dẹp tài nguyên](5.6-Cleanup/)
+1. [Tổng quan Workshop](5.1-Workshop-overview/)
+2. [Chuẩn bị môi trường](5.2-Prerequiste/)
+3. [Triển khai hạ tầng Smart Parking](5.3-Deploy-Infrastructure/)
+4. [Dọn dẹp tài nguyên](5.4-Cleanup/)

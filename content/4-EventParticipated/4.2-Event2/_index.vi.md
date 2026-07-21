@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 4.2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Nội dung dưới đây chỉ mang tính chất tham khảo. Vui lòng **không sao chép nguyên văn** vào báo cáo của bạn.
-{{% /notice %}}
+
 
 # Báo cáo tóm tắt: "AWS Community Day Vietnam – Các phiên chia sẻ về Trí tuệ nhân tạo và Điện toán đám mây"
 

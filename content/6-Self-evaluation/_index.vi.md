@@ -6,11 +6,9 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
-Trong quá trình thực tập tại AWS Vietnam từ ngày 17/04/2026 đến ngày 10/07/2026, em đã có cơ hội học hỏi, thực hành và áp dụng những kiến thức đã tích lũy từ nhà trường vào môi trường làm việc thực tế.
+
+Trong quá trình thực tập tại AWS Vietnam từ ngày 17/04/2026 đến ngày 30/07/2026, em đã có cơ hội học hỏi, thực hành và áp dụng những kiến thức đã tích lũy từ nhà trường vào môi trường làm việc thực tế.
 
 Em đã tham gia phân tích yêu cầu, thiết kế kiến trúc đám mây phân tầng và trực tiếp triển khai hệ thống hạ tầng có tính sẵn sàng cao, bảo mật và tự động hóa toàn diện trên nền tảng Amazon Web Services (AWS), qua đó giúp em nâng cao các kỹ năng về Thiết kế giải pháp đám mây, lập trình quản lý hạ tầng bằng mã (IaC), cấu hình luồng tự động hóa triển khai phần mềm (CI/CD), kiểm soát an ninh đám mây và biên soạn tài liệu kỹ thuật chuyên nghiệp.
 

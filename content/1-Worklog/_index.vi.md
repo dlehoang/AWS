@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Thông tin dưới đây chỉ mang tính chất tham khảo. Vui lòng **không sao chép nguyên văn** vào báo cáo của bạn, bao gồm cả cảnh báo này.
-{{% /notice %}}
+
 
 **Tại trang này**, bạn sẽ thấy tổng quan về nhật ký làm việc kỹ thuật được ghi nhận trong suốt quá trình thực tập. Nhật ký theo dõi tiến độ hàng tuần, các bài thực hành thực tế và các thành tựu kiến trúc trên nền tảng Amazon Web Services (AWS).
 

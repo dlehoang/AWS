@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+
 
 Tại phần này, nhóm trình bày đề xuất xây dựng hệ thống **Smart Parking System on AWS**, một nền tảng quản lý bãi đỗ xe thông minh ứng dụng các dịch vụ điện toán đám mây của Amazon Web Services.
 

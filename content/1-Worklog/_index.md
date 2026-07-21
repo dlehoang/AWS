@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+
 
 **On this page**, you will find an overview of the technical worklog documented during the internship. The logs track weekly progress, hands-on practices, and architectural achievements on Amazon Web Services (AWS) throughout the program.
 

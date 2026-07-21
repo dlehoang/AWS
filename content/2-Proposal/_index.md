@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 2. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
+
 
 This proposal presents the Smart Parking System built on Amazon Web Services (AWS). The platform leverages cloud-native and event-driven architecture to provide real-time parking management, online booking, IoT integration, and automated notifications.
 

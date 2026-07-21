@@ -1,18 +1,31 @@
 ---
 title : "Introduction"
-date : 2024-01-01 
-weight : 1 
+date : 2026-07-10
+weight : 1
 chapter : false
 pre : " <b> 5.1. </b> "
 ---
 
-#### VPC endpoints
-+ **VPC endpoints** are virtual devices. They are horizontally scaled, redundant, and highly available VPC components. They allow communication between your compute resources and AWS services without imposing availability risks.
-+ Compute resources running in VPC can access  **Amazon S3**  using a Gateway endpoint. PrivateLink interface endpoints can be used by compute resources running in VPC or on-premises.
+#### Smart Parking System
 
-#### Workshop overview
-In this workshop, you will use two VPCs. 
-+ **"VPC Cloud"** is for cloud resources such as a  **Gateway endpoint** and an EC2 instance to test with. 
-+ **"VPC On-Prem"** simulates an on-premises environment such as a factory or corporate datacenter. An EC2 instance running strongSwan VPN software has been deployed in "VPC On-prem" and automatically configured to establish a Site-to-Site VPN tunnel with AWS Transit Gateway. This VPN simulates connectivity from an on-premises location to the AWS cloud. To minimize costs, only one VPN instance is provisioned to support this workshop. When planning VPN connectivity for your production workloads, AWS recommends using multiple VPN devices for high availability.
++ **Smart Parking System** is a cloud-native parking management solution deployed on AWS. It enables users to search for available parking spaces, reserve parking slots, make online payments, and receive real-time notifications.
++ The system is built using AWS services to provide scalability, high availability, security, and efficient resource management through a microservices architecture.
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+#### Workshop Overview
+
+In this workshop, you will deploy a Smart Parking System on AWS using a secure and scalable architecture.
+
+The architecture consists of the following components:
+
++ **Amazon VPC** provides an isolated and secure networking environment for the application.
++ **Application Load Balancer (ALB)** distributes incoming requests across backend services.
++ **Amazon ECS (Fargate)** hosts the Smart Parking microservices, including Authentication, User, Parking, Booking, Payment, and Notification services.
++ **Amazon RDS MySQL** stores application data such as users, parking lots, reservations, and payment records.
++ **Amazon S3** stores parking images, QR codes, and uploaded files.
++ **AWS Lambda**, **Amazon SNS**, and **Amazon SES** handle serverless processing and user notifications.
++ **Amazon CloudWatch** monitors system performance, collects logs, and provides operational insights.
++ **AWS IAM** and **AWS Secrets Manager** ensure secure access control and protect sensitive credentials.
+
+During this workshop, you will provision the required AWS infrastructure, deploy the Smart Parking application, configure the necessary services, and validate that the entire system operates correctly.
+
+![overview](/images/5-Workshop/5.1-Workshop-overview/w1.jpg)

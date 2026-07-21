@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** vào báo cáo của bạn, kể cả phần cảnh báo này.
-{{% /notice %}}
+
 
 Trong phần này, nhóm sẽ giới thiệu các bài blog được xây dựng dựa trên chủ đề **Smart Parking System on AWS**. Mỗi bài tập trung vào một thành phần quan trọng của hệ thống, giúp người đọc hiểu rõ kiến trúc, quy trình triển khai và cách các dịch vụ AWS phối hợp để xây dựng một hệ thống quản lý bãi đỗ xe thông minh.
 

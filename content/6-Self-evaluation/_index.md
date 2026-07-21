@@ -6,11 +6,9 @@ chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy it verbatim** into your report, including this warning.
-{{% /notice %}}
 
-During my internship at AWS Vietnam from April 17, 2026 to July 10, 2026, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.
+
+During my internship at AWS Vietnam from April 17, 2026 to July 30, 2026, I had the opportunity to learn, practice, and apply the knowledge acquired in school to a real-world working environment.
 
 I participated in analyzing requirements, designing complex multi-tier cloud architectures, and deploying highly available, automated, and secure system infrastructures on Amazon Web Services (AWS), through which I improved my skills in Cloud Solutions Architecture, Infrastructure as Code (IaC) engineering, automated CI/CD deployment pipelines orchestration, cloud security auditing, and technical documentation.
 

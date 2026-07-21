@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 4.1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Nội dung dưới đây chỉ mang tính chất tham khảo. Vui lòng **không sao chép nguyên văn** vào báo cáo của bạn.
-{{% /notice %}}
+
 
 # Báo cáo tóm tắt: "Chiến lược học tập, Prompt Engineering và Phát triển phần mềm với AI"
 

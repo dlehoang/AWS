@@ -6,9 +6,7 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+
 
 This section introduces the translated blogs related to the **Smart Parking System on AWS**. Each blog focuses on a different part of the cloud architecture, explaining the AWS services, design decisions, and implementation techniques used to build a scalable, secure, and highly available smart parking platform.
 
